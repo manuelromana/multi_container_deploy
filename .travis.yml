@@ -11,7 +11,7 @@ script:
 after_success:
   - docker build -t manuelromana/multi-client ./client
   - docker build -t manuelromana/multi-nginx ./nginx
-  - docker build -t manueltomana/multi-server ./server
+  - docker build -t manuelromana/multi-server ./server
   - docker build -t manuelromana/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push manuelromana/multi-client
