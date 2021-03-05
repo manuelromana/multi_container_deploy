@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "manuelromana/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "manuelromana/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "manuelromana/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+
+    {
+      "name": "nginx",
+      "image": "manuelromana/multi-nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "host": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
