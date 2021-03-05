@@ -26,6 +26,7 @@
     {
       "name": "nginx",
       "image": "manuelromana/multi-nginx",
+      "hostname": "nginx",
       "essential": true,
       "portMappings": [
         {
